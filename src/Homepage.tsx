@@ -6,12 +6,11 @@ import { ProjectsSection } from './components/ProjectsSection';
 import { CallToActionSection } from './components/CallToActionSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { StarfieldBackground } from './components/StarfieldBackground';
+
 
 export const Homepage = (): JSX.Element => {
   return (
     <div className="bg-black min-h-screen relative">
-      <StarfieldBackground />
       <div className="relative z-10">
         <Navigation />
         <HeroSection />

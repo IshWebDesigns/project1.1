@@ -85,128 +85,123 @@ export const ContactSection = (): JSX.Element => {
         </div>
 
         {/* Terminal de contato */}
-        <div className={`transition-all duration-1000 delay-300 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="bg-gray-900/80 backdrop-blur-xl rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
-            {/* Header do terminal */}
-            <div className="bg-gray-800/90 px-6 py-4 flex items-center space-x-3 border-b border-gray-700/50">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-              </div>
-              <div className="text-gray-400 text-sm font-mono ml-4 flex items-center space-x-2">
-                <span>Nova Mensagem</span>
-                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-              </div>
-            </div>
-            
-            {/* Conteúdo do formulário */}
-            <form onSubmit={handleSubmit} className="p-8 space-y-6 font-mono">
-              {/* Email */}
-              <div className={`flex items-center space-x-4 transition-all duration-500 ${
-                currentLine >= 1 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-              }`}>
-                <span className="text-gray-400 text-sm w-16 flex-shrink-0">Email:</span>
-                <div className="flex-1 relative group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="seu@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none border-b border-gray-700 focus:border-gray-400 pb-2 transition-all duration-300 group-hover:border-gray-500"
-                    required
-                  />
-                  <Mail className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300" />
-                </div>
-              </div>
+<div className="bg-gray-800/90 rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
+  {/* Header do terminal */}
+  <div className="bg-gray-800/90 px-6 py-4 flex items-center space-x-3 border-b border-gray-700/50">
+    <div className="flex space-x-2">
+      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+    </div>
+    <div className="text-gray-400 text-sm font-mono ml-4 flex items-center space-x-2">
+      <span>Nova Mensagem</span>
+      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+    </div>
+  </div>
 
-              {/* Nome */}
-              <div className={`flex items-center space-x-4 transition-all duration-500 delay-200 ${
-                currentLine >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-              }`}>
-                <span className="text-gray-400 text-sm w-16 flex-shrink-0">Nome:</span>
-                <div className="flex-1 relative group">
-                  <input
-                    type="text"
-                    name="nome"
-                    placeholder="Seu nome"
-                    value={formData.nome}
-                    onChange={handleChange}
-                    className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none border-b border-gray-700 focus:border-gray-400 pb-2 transition-all duration-300 group-hover:border-gray-500"
-                    required
-                  />
-                  <User className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300" />
-                </div>
-              </div>
+  {/* Conteúdo do formulário */}
+  <form onSubmit={handleSubmit} className="p-8 space-y-6 font-mono">
+    {/* Email */}
+    <div className={`flex items-center space-x-4 transition-all duration-500 ${
+      currentLine >= 1 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+    }`}>
+      <span className="text-gray-400 text-sm w-16 flex-shrink-0">Email:</span>
+      <div className="flex-1 relative group">
+        <input
+          type="email"
+          name="email"
+          placeholder="seu@email.com"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none border-b border-gray-700 focus:border-gray-400 pb-2 transition-all duration-300 group-hover:border-gray-500"
+          required
+        />
+        <Mail className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300" />
+      </div>
+    </div>
 
-              {/* Assunto */}
-              <div className={`flex items-center space-x-4 transition-all duration-500 delay-400 ${
-                currentLine >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-              }`}>
-                <span className="text-gray-400 text-sm w-16 flex-shrink-0">Assunto:</span>
-                <div className="flex-1 relative group">
-                  <input
-                    type="text"
-                    name="assunto"
-                    placeholder="Assunto da mensagem"
-                    value={formData.assunto}
-                    onChange={handleChange}
-                    className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none border-b border-gray-700 focus:border-gray-400 pb-2 transition-all duration-300 group-hover:border-gray-500"
-                    required
-                  />
-                  <MessageSquare className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300" />
-                </div>
-              </div>
+    {/* Nome */}
+    <div className={`flex items-center space-x-4 transition-all duration-500 delay-200 ${
+      currentLine >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+    }`}>
+      <span className="text-gray-400 text-sm w-16 flex-shrink-0">Nome:</span>
+      <div className="flex-1 relative group">
+        <input
+          type="text"
+          name="nome"
+          placeholder="Seu nome"
+          value={formData.nome}
+          onChange={handleChange}
+          className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none border-b border-gray-700 focus:border-gray-400 pb-2 transition-all duration-300 group-hover:border-gray-500"
+          required
+        />
+        <User className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300" />
+      </div>
+    </div>
 
-              {/* Mensagem */}
-              <div className={`pt-4 transition-all duration-500 delay-600 ${
-                currentLine >= 4 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-              }`}>
-                <div className="relative group">
-                  <textarea
-                    name="mensagem"
-                    placeholder="$ Escreva a sua mensagem aqui..."
-                    value={formData.mensagem}
-                    onChange={handleChange}
-                    rows={6}
-                    className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none resize-none border border-gray-700 focus:border-gray-400 rounded-lg p-4 transition-all duration-300 group-hover:border-gray-500"
-                    required
-                  />
-                  <div className="absolute bottom-4 right-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300">
-                    <MessageSquare className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
+    {/* Assunto */}
+    <div className={`flex items-center space-x-4 transition-all duration-500 delay-400 ${
+      currentLine >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+    }`}>
+      <span className="text-gray-400 text-sm w-16 flex-shrink-0">Assunto:</span>
+      <div className="flex-1 relative group">
+        <input
+          type="text"
+          name="assunto"
+          placeholder="Assunto da mensagem"
+          value={formData.assunto}
+          onChange={handleChange}
+          className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none border-b border-gray-700 focus:border-gray-400 pb-2 transition-all duration-300 group-hover:border-gray-500"
+          required
+        />
+        <MessageSquare className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300" />
+      </div>
+    </div>
 
-              {/* Botão de envio */}
-              <div className="pt-6 flex justify-end">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="group relative px-8 py-3 bg-white text-black font-bold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <span className="relative z-10 flex items-center space-x-2">
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-                        <span>Enviando...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4" />
-                        <span>Enviar</span>
-                      </>
-                    )}
-                  </span>
-                </button>
-              </div>
-            </form>
-          </div>
+    {/* Mensagem */}
+    <div className={`pt-4 transition-all duration-500 delay-600 ${
+      currentLine >= 4 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+    }`}>
+      <div className="relative group">
+        <textarea
+          name="mensagem"
+          placeholder="$ Escreva a sua mensagem aqui..."
+          value={formData.mensagem}
+          onChange={handleChange}
+          rows={6}
+          className="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none resize-none border border-gray-700 focus:border-gray-400 rounded-lg p-4 transition-all duration-300 group-hover:border-gray-500"
+          required
+        />
+        <div className="absolute bottom-4 right-4 text-gray-500 group-focus-within:text-gray-400 transition-colors duration-300">
+          <MessageSquare className="w-5 h-5" />
         </div>
+      </div>
+    </div>
 
+    {/* Botão de envio */}
+    <div className="pt-6 flex justify-end">
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="group relative px-8 py-3 bg-white text-black font-bold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <span className="relative z-10 flex items-center space-x-2">
+          {isSubmitting ? (
+            <>
+              <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+              <span>Enviando...</span>
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4" />
+              <span>Enviar</span>
+            </>
+          )}
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
         {/* Ícones sociais */}
         <div className={`flex justify-center space-x-8 mt-16 transition-all duration-1000 delay-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

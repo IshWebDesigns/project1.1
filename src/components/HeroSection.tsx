@@ -3,9 +3,35 @@ import React, { useEffect, useState } from 'react';
 export const HeroSection = (): JSX.Element => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [particles, setParticles] = useState<Array<{
+    id: number;
+    x: number;
+    y: number;
+    size: number;
+    opacity: number;
+    speed: number;
+  }>>([]);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Generate minimalist particles
+    const generateParticles = () => {
+      const newParticles = [];
+      for (let i = 0; i < 50; i++) {
+        newParticles.push({
+          id: i,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          size: Math.random() * 3 + 5, // 2-5px
+          opacity: Math.random() * 0.4 + 0.3, // 0.3-0.7
+          speed: Math.random() * 2 + 2, // 1-3s
+        });
+      }
+      setParticles(newParticles);
+    };
+
+    generateParticles();
     
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -20,22 +46,24 @@ export const HeroSection = (): JSX.Element => {
       {/* Subtle neutral background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900/10 via-gray-800/5 to-gray-900/10" />
       
-      {/* Minimal floating particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+      {/* Minimalist floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {particles.map((particle) => (
           <div
-            key={i}
-            className="absolute w-0.5 h-0.5 bg-gray-400/20 rounded-full"
+            key={particle.id}
+            className="absolute bg-white/50 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${8 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 8}s`
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              opacity: particle.opacity,
+              animationDuration: `${particle.speed * 3}s`,
+              animationDelay: `${particle.id * 0.2}s`,
             }}
           />
         ))}
       </div>
-
       
 
       {/* Logo principal com efeitos incríveis */}

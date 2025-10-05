@@ -7,17 +7,17 @@ export const Navigation = (): JSX.Element => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
+
+      // Atualizar secção ativa
       const sections = ['home', 'sobre', 'projetos', 'contato'];
       const scrollPosition = window.scrollY + 100;
-      
+
       sections.forEach(section => {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section);
           }
@@ -50,7 +50,7 @@ export const Navigation = (): JSX.Element => {
               { id: 'home', label: 'HOME' },
               { id: 'sobre', label: 'SOBRE' },
               { id: 'projetos', label: 'PROJETOS' },
-              { id: 'sobre', label: 'CONTACTO' }
+              { id: 'contato', label: 'CONTACTO' } 
             ].map((item) => (
               <button
                 key={item.id}
