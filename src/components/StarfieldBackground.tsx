@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 interface Star {
   id: number;
@@ -13,21 +13,21 @@ export const StarfieldBackground = (): JSX.Element => {
   const [stars, setStars] = useState<Star[]>([]);
 
   useEffect(() => {
-    // Generate stars
     const generateStars = () => {
       const newStars: Star[] = [];
-      const starCount = 80; // Minimal amount for subtle effect
+      const starCount = 120; // um pouco mais de estrelas
 
       for (let i = 0; i < starCount; i++) {
         newStars.push({
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 2 + 1, // 1-3px
-          opacity: Math.random() * 0.4 + 0.1, // 0.1-0.5 opacity for subtlety
-          twinkleDelay: Math.random() * 8, // Staggered twinkling
+          size: Math.random() * 2 + 1.5, // 1.5 - 3.5px → mais visíveis
+          opacity: Math.random() * 0.5 + 0.5, // 0.5 - 1 → mais brilho
+          twinkleDelay: Math.random() * 8,
         });
       }
+
       setStars(newStars);
     };
 
@@ -35,7 +35,7 @@ export const StarfieldBackground = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {stars.map((star) => (
         <div
           key={star.id}
@@ -47,7 +47,8 @@ export const StarfieldBackground = (): JSX.Element => {
             height: `${star.size}px`,
             opacity: star.opacity,
             animationDelay: `${star.twinkleDelay}s`,
-            animationDuration: '4s',
+            animationDuration: "6s", // animação suave
+            filter: "blur(0.5px)", // dá um efeito de brilho
           }}
         />
       ))}
