@@ -23,10 +23,10 @@ export const ProjectsSection = (): JSX.Element => {
   const projects = [
     { 
       id: 1, 
-      title: 'PROJETO 1',
-      description: 'E-commerce Moderno',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600'
+      title: 'Globalead.pt',
+      description: 'WebSite de Imobiliaria',
+      tech: ['React-ts', 'Supabase'],
+      image: '/assets/image.png'
     },
     { 
       id: 2, 
