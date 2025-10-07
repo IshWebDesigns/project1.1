@@ -7,7 +7,7 @@ export const Footer = (): JSX.Element => {
         <div className="flex flex-col md:flex-row justify-between items-start">
           {/* Logo grande */}
           <div className="mb-8 md:mb-0">
-            <h2 className="text-6xl md:text-8xl font-bold text-white">ish</h2>
+            <h2 className="text-6xl md:text-8xl font-bold text-white">ish.web</h2>
           </div>
           
           {/* Links */}
@@ -27,7 +27,6 @@ export const Footer = (): JSX.Element => {
               <h3 className="text-white font-bold mb-4">Sociais</h3>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">Threads</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Figma</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Mail</a></li>
@@ -39,7 +38,7 @@ export const Footer = (): JSX.Element => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p>© 2025 DVGD All Rights Reserved.</p>
-          <p>made by ish</p>
+          <p>made by ish.web</p>
         </div>
       </div>
     </footer>
