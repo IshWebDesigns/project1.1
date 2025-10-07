@@ -1,71 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
+
 
 export const Navigation = (): JSX.Element => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      // Atualizar secção ativa
-      const sections = ['home', 'sobre', 'projetos', 'contato'];
-      const scrollPosition = window.scrollY + 100;
-
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-          }
-        }
-      });
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled 
-        ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-2xl' 
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="flex items-center justify-between">
-          {/* Menu esquerdo */}
-          <div className="flex items-center space-x-8">
-            {[
-              { id: 'home', label: 'HOME' },
-              { id: 'sobre', label: 'SOBRE' },
-              { id: 'projetos', label: 'PROJETOS' },
-              { id: 'contato', label: 'CONTACTO' } 
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative text-sm font-medium tracking-wider transition-all duration-300 group ${
-                  activeSection === item.id ? 'text-white' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                {item.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${
-                  activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
-              </button>
-            ))}
-          </div>
+    <nav
+      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500`}
+    >
+      <div
+        className={`
+          flex items-center justify-between 
+          px-6 py-3 rounded-full 
+          border border-white/10 
+          backdrop-blur-md 
+          bg-white/5
+          text-white 
+          shadow-lg 
+          max-w-5xl w-[90vw] 
+          transition-all duration-300
+          ${scrolled ? 'scale-[0.98] opacity-95' : 'scale-100 opacity-100'}
+        `}
+      >
+        {/* Logo + Nome */}
+        <div
+          className="flex items-center space-x-3 cursor-pointer"
+          onClick={() => scrollToSection('home')}
+        >
+          <span className="text-sm font-medium hidden sm:inline text-white">ish.web</span>
+        </div>
+
+        {/* Menu */}
+        <div className="flex items-center space-x-8">
+          {[
+            {id: 'home', label: 'Home' }, 
+            { id: 'sobre', label: 'Sobre' }, 
+            { id: 'projetos', label: 'Projetos' }, 
+            { id: 'contato', label: 'Contacto' }
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`text-sm font-semibold transition-colors duration-300 ${
+                activeSection === item.id
+                  ? 'text-white'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       </div>
     </nav>
