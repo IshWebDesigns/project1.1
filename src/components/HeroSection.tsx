@@ -104,14 +104,23 @@ export const HeroSection = (): JSX.Element => {
         </div>
         
         {/* Tagline */}
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-4xl text-gray-300 leading-relaxed font-light">
-            <span className="text-white font-semibold">
-              Criamos websites modernos e
+        <div className="max-w-5xl mx-auto px-4">
+          <p className="text-base md:text-lg text-gray-400 font-medium tracking-wide mb-6 uppercase">
+            Criar um website é mais do que estar online
+          </p>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl leading-tight font-light text-white">
+            É construir uma{' '}
+            <span className="font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+              presença digital
             </span>
-            <br />
-            <span className="text-gray-200 font-semibold">
-              profissionais para o seu negócio
+            {' '}que transmite confiança,
+            <br className="hidden md:block" />
+            <span className="font-semibold text-gray-100">
+              {' '}gera oportunidades
+            </span>
+            {' '}e faz{' '}
+            <span className="font-bold bg-gradient-to-r from-gray-100 to-white bg-clip-text text-transparent">
+              crescer o seu negócio
             </span>
           </h2>
         </div>
