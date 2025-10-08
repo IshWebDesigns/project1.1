@@ -30,14 +30,14 @@ export const ProjectsSection = (): JSX.Element => {
     },
     { 
       id: 2, 
-      title: 'PROJETO 2',
-      description: 'Dashboard Analytics',
-      tech: ['Vue.js', 'Python', 'PostgreSQL'],
-      image: 'https://images.pexels.com/photos/2029722/pexels-photo-2029722.jpeg?auto=compress&cs=tinysrgb&w=600'
+      title: 'Youthneet.com',
+      description: 'WebSite Programa Erasmus+',
+      tech: ['Wordpress', 'javascript', 'phpMyAdmin'],
+      image: '/youthneet.png'
     },
     { 
       id: 3, 
-      title: 'PROJETO 3',
+      title: '',
       description: 'App Mobile Híbrido',
       tech: ['React Native', 'Firebase'],
       image: 'https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=600'
