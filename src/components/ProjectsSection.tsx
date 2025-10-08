@@ -26,7 +26,7 @@ export const ProjectsSection = (): JSX.Element => {
       title: 'Globalead.pt',
       description: 'WebSite de Imobiliaria',
       tech: ['React-ts', 'Supabase'],
-      image: '/assets/image.png'
+      image: '/globalead.png'
     },
     { 
       id: 2, 
@@ -140,7 +140,7 @@ export const ProjectsSection = (): JSX.Element => {
                 
                 {/* Informações do projeto */}
                 <div className="p-8">
-                  <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-2 group-hover:text-gray-200 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-white cursor-pointer hover:underline tracking-wider mb-2 group-hover:text-gray-200 transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">
